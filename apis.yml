@@ -1,25 +1,88 @@
 aid: meritfirst
 name: Meritfirst
-description: Meritfirst is a company surfaced as a portfolio company of 8vc and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  MeritFirst is a skills-based hiring platform that replaces resume- and
+  credential-based recruiting with practical, real-world assessments. Candidates
+  prove their craft through work samples (Build, Try, Get Seen) and companies
+  evaluate and match them on demonstrated ability rather than pedigree.
+  MeritFirst exposes a hosted, authenticated Model Context Protocol (MCP) server
+  so agents and tools can manage assessments, review candidates, and analyze
+  hiring data. Backed by 8VC and Slow Ventures.
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://www.meritfirst.us/images/logo.svg
 url: https://raw.githubusercontent.com/api-evangelist/meritfirst/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - 8vc
+- slow-ventures
 x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
-apis: []
+- Hiring
+- Recruiting
+- Assessments
+- Talent
+- Skills-Based Hiring
+- MCP
+apis:
+- name: MeritFirst MCP
+  description: >-
+    Hosted, authenticated Model Context Protocol server for managing
+    assessments, reviewing candidates, and analyzing hiring data. Streamable-HTTP
+    transport; Bearer MeritFirst API key (mf_) required.
+  humanURL: https://meritfirst.us
+  baseURL: https://www.meritfirst.us/api/connect/mcp
+  properties:
+  - type: MCPServer
+    url: mcp/meritfirst-mcp.yml
+  - type: Authentication
+    url: authentication/meritfirst-authentication.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/meritfirst-domain-security.yml
 - type: Website
   url: https://meritfirst.us
+- type: SignUp
+  url: https://meritfirst.us/login?signup=true
+- type: Login
+  url: https://meritfirst.us/login
+- type: Security
+  url: https://www.meritfirst.us/security
+- type: MCPServer
+  url: mcp/meritfirst-mcp.yml
+- type: WellKnown
+  url: well-known/meritfirst-well-known.yml
+- type: SecurityTxt
+  url: well-known/meritfirst-security.txt
+- type: Authentication
+  url: authentication/meritfirst-authentication.yml
+- type: VulnerabilityDisclosure
+  url: security/meritfirst-vulnerability-disclosure.yml
+- type: LLMsTxt
+  url: llms/meritfirst-llms.txt
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 9
+  pass: local-v1
