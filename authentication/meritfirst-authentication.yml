@@ -1,0 +1,29 @@
+generated: '2026-07-20'
+method: searched
+source: https://www.meritfirst.us/.well-known/mcp/server-card.json
+docs: null
+summary:
+  types: [apiKey]
+  api_key_in: [header]
+  api_key_scheme: bearer
+  oauth2_flows: []
+schemes:
+  - name: MeritFirstApiKey
+    type: apiKey
+    in: header
+    header_name: Authorization
+    format: 'Bearer <api_key>'
+    key_prefix: mf_
+    provisioning: Settings > API Keys
+    description: >-
+      MeritFirst authenticates API/MCP access with a personal API key that
+      begins with mf_, presented as an HTTP Bearer token in the Authorization
+      header. Keys are generated in the account UI under Settings > API Keys.
+    sources:
+      - well-known/meritfirst-api-catalog.json
+      - mcp/meritfirst-server-card.json
+notes: >-
+  Derived from the MCP server card (the only public machine-readable auth
+  descriptor MeritFirst publishes); no OpenAPI is available to run
+  derive-authentication.py against. No OAuth authorization-server or
+  openid-configuration is exposed (both /.well-known probes 404).

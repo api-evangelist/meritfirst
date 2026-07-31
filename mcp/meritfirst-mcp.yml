@@ -1,0 +1,31 @@
+generated: '2026-07-20'
+method: searched
+status: published
+source: https://www.meritfirst.us/.well-known/mcp/server-card.json
+discovered_via: https://meritfirst.us/.well-known/api-catalog
+server:
+  name: us.meritfirst/mcp
+  title: MeritFirst
+  version: 1.0.0
+  description: >-
+    Connect to MeritFirst to manage assessments, review candidates, and
+    analyze hiring data.
+  website: https://meritfirst.us
+  transport: streamable-http
+  url: https://www.meritfirst.us/api/connect/mcp
+  icon: https://www.meritfirst.us/images/logo.svg
+authentication:
+  type: bearer
+  scheme: http-bearer
+  header: Authorization
+  credential: MeritFirst API key (starts with mf_)
+  provisioning: Settings > API Keys
+  is_secret: true
+  is_required: true
+tools: []
+tools_note: >-
+  The published server card does not enumerate tools; the tool list is only
+  exposed on an authenticated MCP session (Bearer mf_ API key required), so it
+  could not be captured. Server description scopes it to assessment management,
+  candidate review, and hiring-data analysis.
+registry: null

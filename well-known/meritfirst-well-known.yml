@@ -1,0 +1,27 @@
+generated: '2026-07-20'
+method: searched
+source: https://meritfirst.us/.well-known/
+host: https://meritfirst.us
+documents:
+  - path: /.well-known/security.txt          # RFC 9116
+    status: 200
+    content_type: text/plain
+    file: meritfirst-security.txt
+  - path: /.well-known/api-catalog            # RFC 9727 API Catalog (linkset)
+    status: 200
+    content_type: application/linkset+json
+    file: meritfirst-api-catalog.json
+    note: >-
+      Advertises a hosted MCP server at
+      https://www.meritfirst.us/api/connect/mcp with server-card
+      /.well-known/mcp/server-card.json
+  - path: /.well-known/mcp/server-card.json   # MCP server card
+    status: 200
+    content_type: application/json
+    file: ../mcp/meritfirst-server-card.json
+  - path: /.well-known/openid-configuration   # OIDC discovery
+    status: 404
+  - path: /.well-known/oauth-authorization-server  # RFC 8414
+    status: 404
+  - path: /.well-known/ai-plugin.json         # OpenAI plugin manifest
+    status: 404

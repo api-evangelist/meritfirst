@@ -1,0 +1,19 @@
+# MeritFirst
+
+> MeritFirst is a skills-based hiring platform that replaces resume- and credential-based recruiting with practical, real-world assessments. Candidates prove their craft through work samples ("Build -> Try -> Get Seen"); companies evaluate and match candidates on demonstrated ability. MeritFirst publishes a hosted, authenticated Model Context Protocol (MCP) server so agents can manage assessments, review candidates, and analyze hiring data. Backed by 8VC and Slow Ventures.
+
+## Connect (agent / API)
+- [MCP server (streamable-http)](https://www.meritfirst.us/api/connect/mcp): Authenticated MCP endpoint; Bearer API key (starts with mf_), generated at Settings > API Keys.
+- [MCP server card](https://www.meritfirst.us/.well-known/mcp/server-card.json): Machine-readable server descriptor (us.meritfirst/mcp v1.0.0).
+- [API catalog](https://meritfirst.us/.well-known/api-catalog): RFC 9727 linkset advertising the MCP surface.
+
+## Site
+- [Home](https://meritfirst.us): Product overview and manifesto.
+- [Sign up / free trial](https://meritfirst.us/login?signup=true): Create an account.
+- [Log in](https://meritfirst.us/login): Account access.
+- [Security](https://www.meritfirst.us/security): Security policy and vulnerability disclosure.
+- [security.txt](https://meritfirst.us/.well-known/security.txt): RFC 9116 security contact (security@meritfirst.us).
+
+## Notes
+- Investors: 8VC, Slow Ventures.
+- No public OpenAPI, developer portal, or docs site is published; the MCP server is the machine-readable integration surface.
