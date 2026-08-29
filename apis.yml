@@ -8,6 +8,17 @@ description: >-
   MeritFirst exposes a hosted, authenticated Model Context Protocol (MCP) server
   so agents and tools can manage assessments, review candidates, and analyze
   hiring data. Backed by 8VC and Slow Ventures.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
