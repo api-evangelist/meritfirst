@@ -1,27 +1,52 @@
-generated: '2026-07-20'
+generated: '2026-09-19'
 method: searched
 source: https://meritfirst.us/.well-known/
 host: https://meritfirst.us
-documents:
-  - path: /.well-known/security.txt          # RFC 9116
+hosts:
+- host: https://meritfirst.us
+  documents:
+  - path: /.well-known/security.txt
     status: 200
-    content_type: text/plain
     file: meritfirst-security.txt
-  - path: /.well-known/api-catalog            # RFC 9727 API Catalog (linkset)
+    content_type: text/plain
+  - path: /.well-known/api-catalog
     status: 200
-    content_type: application/linkset+json
     file: meritfirst-api-catalog.json
-    note: >-
-      Advertises a hosted MCP server at
-      https://www.meritfirst.us/api/connect/mcp with server-card
+    content_type: application/linkset+json
+    note: Advertises a hosted MCP server at https://www.meritfirst.us/api/connect/mcp with server-card
       /.well-known/mcp/server-card.json
-  - path: /.well-known/mcp/server-card.json   # MCP server card
+  - path: /.well-known/mcp/server-card.json
     status: 200
-    content_type: application/json
     file: ../mcp/meritfirst-server-card.json
-  - path: /.well-known/openid-configuration   # OIDC discovery
+    content_type: application/json
+  - path: /.well-known/openid-configuration
     status: 404
-  - path: /.well-known/oauth-authorization-server  # RFC 8414
+  - path: /.well-known/oauth-authorization-server
     status: 404
-  - path: /.well-known/ai-plugin.json         # OpenAI plugin manifest
+  - path: /.well-known/ai-plugin.json
     status: 404
+- host: https://www.meritfirst.us
+  documents:
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    file: meritfirst-www-oauth-protected-resource.json
+    bytes: 180
+  path_echo_control: passed
+x-shape-fix:
+  converted: '2026-08-20'
+  from: documents
+  note: Rewritten into hosts[] -> documents[], the only shape well_known_docs() in score.rb reads. A served
+    .well-known surface recorded in any other shape scores as absent.
+x-mcp-probe:
+  probed: '2026-09-19'
+  issue: roadmap#321, roadmap#337
+  documents:
+  - host: https://www.meritfirst.us
+    path: /.well-known/oauth-protected-resource
+    file: meritfirst-www-oauth-protected-resource.json
+  validated_on: resource (RFC 9728) / issuer (RFC 8414, OIDC)
+  negative_control: one per host; a 2xx JSON object at an impossible path discards the host
+note: 'MCP-host OAuth discovery added 2026-09-19 (roadmap#321/#337): the harvest visits a provider''s
+  primary hosts, and RFC 9728 protected-resource metadata lives on the MCP host, so these documents existed
+  and were invisible to the scorer. Fetched live and validated on `resource`/`issuer`; one negative control
+  per host.'
